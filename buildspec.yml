@@ -14,5 +14,5 @@ phases:
 
 env:
   variables:
-    backup_folder: "/tmp/periodic_backup"
-    s3_folder: "s3://jenkins-backup-prod/jenkins-prod.pearsonrealize.com/"
+    backup_folder: "/opt/venkat/venky.txt"
+    s3_folder: "s3://elasticbeanstalk-us-east-1-508511762335/sss/"
