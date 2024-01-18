@@ -14,5 +14,5 @@ phases:
 
 env:
   variables:
-    backup_folder: "/opt/venkat/venky.txt"
+    backup_folder: "/var/"
     s3_folder: "s3://elasticbeanstalk-us-east-1-508511762335/sss/"
