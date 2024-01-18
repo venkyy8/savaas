@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - apt-get update
+      - apt-get install -y awscli
+
+  build:
+    commands:
+      - aws s3 cp $backup_folder/*.zip $s3_folder
+
+env:
+  variables:
+    backup_folder: "/tmp/periodic_backup"
+    s3_folder: "s3://jenkins-backup-prod/jenkins-prod.pearsonrealize.com/"
