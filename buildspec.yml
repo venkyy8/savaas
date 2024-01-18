@@ -7,12 +7,13 @@ phases:
     commands:
       - apt-get update
       - apt-get install -y awscli
+env:
+  variables:
+    backup_folder: "/opt/venkat.txt"
+    s3_folder: "s3://elasticbeanstalk-us-east-1-508511762335/sss/"
 
   build:
     commands:
-      - aws s3 cp $backup_folder/*.zip $s3_folder
+      - aws s3 cp $backup_folder/* $s3_folder
 
-env:
-  variables:
-    backup_folder: "/var/"
-    s3_folder: "s3://elasticbeanstalk-us-east-1-508511762335/sss/"
+
