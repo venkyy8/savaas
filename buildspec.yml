@@ -3,17 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      python: 3.11
-    commands:
-      - apt-get update
-      - apt-get install -y awscli
-env:
-  variables:
-    backup_folder: "/opt/venkat.txt"
-    s3_folder: "s3://elasticbeanstalk-us-east-1-508511762335/sss/"
-
+      python: 3.8
   build:
     commands:
-      - aws s3 cp $backup_folder/* $s3_folder
-
-
+      - aws s3 cp /opt/venkat.txt s3://personnel01venky01/
