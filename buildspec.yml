@@ -1,3 +1,4 @@
+
 version: 0.2
 
 phases:
@@ -5,12 +6,12 @@ phases:
     runtime-versions:
       python: 3.11
     commands:
-      - apt-get update
-      - apt-get install -y awscli
+      - yum update
+      - yum install -y awscli
 
   build:
     commands:
-      - aws s3 cp s3://personnel01venky01/terraform.pem /opt/terraform.pem
-      - chmod 400 /opt/terraform.pem
-      - scp -i /opt/terraform.pem ubuntu@65.0.177.227:/opt/venkat.txt /tmp/venkat.txt
+      - aws s3 cp s3://personnel01venky01/terraform.pem /tmp/key.pem
+      - chmod 400 /tmp/key.pem
+      - scp -i /tmp/key.pem ec2-user@65.0.177.227:/opt/venkat.txt /tmp/venkat.txt
       - aws s3 cp /tmp/venkat.txt s3://personnel01venky01/
