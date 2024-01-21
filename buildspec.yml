@@ -5,8 +5,8 @@ phases:
     runtime-versions:
       python: 3.11
     commands:
-      - yum update
-      - yum install -y awscli
+      - apt-get update
+      - apt-get install -y awscli
 
   build:
     commands:
