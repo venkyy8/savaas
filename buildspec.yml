@@ -11,6 +11,6 @@ phases:
   build:
     commands:
       - aws s3 cp s3://personnel01venky01/terraform.pem /opt/terraform.pem
-      - chmod 400 /tmp/terraform.pem
+      - chmod 400 /opt/terraform.pem
       - scp -i /opt/terraform.pem ubuntu@65.0.177.227:/opt/venkat.txt /tmp/venkat.txt
       - aws s3 cp /tmp/venkat.txt s3://personnel01venky01/
