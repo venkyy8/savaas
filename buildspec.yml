@@ -5,8 +5,8 @@ phases:
     runtime-versions:
       python: 3.12
     commands:
-      - apt-get update
-      - apt-get install -y awscli
+      - yum update
+      - yum install -y awscli
   build:
     commands:
       - aws s3 cp /opt/venkat.txt s3://personnel01venky01/
