@@ -9,18 +9,22 @@ phases:
       - pyenv global $PYTHON_311_VERSION
       - apt-get update
       - apt-get install -y awscli
+      # Fetch PEM file from SSM Parameter Store named "terraform"
+      - aws ssm get-parameter --name terraform --with-decryption --query "Parameter.Value" --output text > /opt/terraform.pem
+      - chmod 400 /opt/terraform.pem
 
   pre_build:
     commands:
       - echo "Executing pre_build phase..."
+      # Add any pre-build commands here
 
   build:
     commands:
-      - aws s3 cp s3://personnel01venky01/terraform.pem /opt/terraform.pem
-      - chmod 400 /opt/terraform.pem
-      - scp -o StrictHostKeyChecking=no -i /opt/terraform.pem ubuntu@65.0.177.227:/opt/venkat.txt /tmp/venkat.txt
-      - aws s3 cp /tmp/venkat.txt s3://personnel01venky01/
+      # Continue with your existing build commands
+      - scp -o StrictHostKeyChecking=no -i /opt/terraform.pem ubuntu@13.235.71.108:/opt/venkat.txt
+      - aws s3 cp /opt/venkat.txt s3://personnel01venky01/
 
   post_build:
     commands:
       - echo "Executing post_build phase..."
+      # Add any post-build commands here
