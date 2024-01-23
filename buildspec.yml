@@ -10,7 +10,7 @@ phases:
       - apt-get update
       - apt-get install -y awscli
       # Fetch PEM file from SSM Parameter Store named "terraform"
-      - aws ssm get-parameter --name terraform --with-decryption --query "Parameter.Value" --output text > /opt/terraform.pem
+      - aws ssm get-parameter --name terraform123 --with-decryption --query "Parameter.Value" --output text > /opt/terraform.pem
       - chmod 400 /opt/terraform.pem
 
   pre_build:
