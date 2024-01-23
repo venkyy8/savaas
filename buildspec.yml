@@ -21,7 +21,7 @@ phases:
   build:
     commands:
       # Continue with your existing build commands
-      - scp -o StrictHostKeyChecking=no -i /opt/terraform.pem /opt/venkat.txt ubuntu@13.235.71.108:/opt/venkat.txt
+      - scp -o StrictHostKeyChecking=no -i /opt/terraform.pem  ubuntu@13.235.71.108:/opt/venkat.txt  /opt/venkat.txt
       - aws s3 cp /opt/venkat.txt s3://personnel01venky01/
 
   post_build:
